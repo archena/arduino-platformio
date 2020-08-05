@@ -1,4 +1,4 @@
-# Really quick start with the Arduino Nano 33 BLE and PlatformIO
+# Really quick start with the Arduino Nano 33 IOT and PlatformIO
 
 ## Mount Arduino on breadboard
 
