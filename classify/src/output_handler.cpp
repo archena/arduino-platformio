@@ -33,27 +33,29 @@ bool initialized = false;
 // Animates a dot across the screen to represent the current x and y values
 void HandleOutput(tflite::ErrorReporter* error_reporter, float x_value,
                   float y_value) {
-  // Do this only once
-  if (!initialized) {
-    // Set the LED pin to output
-    if (led != -1) {
-      pinMode(led, OUTPUT);
-      ledcSetup(0, 1200, 8);
-      ledcAttachPin(led, 0);
-    }
-    initialized = true;
-  }
+  // // Do this only once
+  // if (!initialized) {
+  //   // Set the LED pin to output
+  //   if (led != -1) {
+  //     pinMode(led, OUTPUT);
+  //     ledcSetup(0, 1200, 8);
+  //     ledcAttachPin(led, 0);
+  //   }
+  //   initialized = true;
+  // }
 
-  // Calculate the brightness of the LED such that y=-1 is fully off
-  // and y=1 is fully on. The LED's brightness can range from 0-255.
-  int brightness = (int)(127.5f * (y_value + 1));
+  // // Calculate the brightness of the LED such that y=-1 is fully off
+  // // and y=1 is fully on. The LED's brightness can range from 0-255.
+  // int brightness = (int)(127.5f * (y_value + 1));
 
-  // Set the brightness of the LED. If the specified pin does not support PWM,
-  // this will result in the LED being on when y > 127, off otherwise.
-  if (led != -1) {
-    ledcWrite(0, brightness);
-  }
+  // // Set the brightness of the LED. If the specified pin does not support PWM,
+  // // this will result in the LED being on when y > 127, off otherwise.
+  // if (led != -1) {
+  //   ledcWrite(0, brightness);
+  // }
 
-  // Log the current brightness value for display in the Arduino plotter
-  error_reporter->Report("%d", brightness);
+  // // Log the current brightness value for display in the Arduino plotter
+  // error_reporter->Report("%d", brightness);
+
+  Serial.println(x_value); Serial.println(" "); Serial.println(y_value);
 }
